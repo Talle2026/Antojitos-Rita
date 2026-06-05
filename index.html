@@ -9,73 +9,75 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #FAF6F0; color: #332211; font-family: 'Montserrat', sans-serif; padding-bottom: 120px; }
         header { text-align: center; padding: 35px 20px; background: linear-gradient(135deg, #d90429, #ef233c); color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
-        header h1 { font-family: 'Lilita One', cursive; font-size: 3rem; margin-bottom: 2px; }
+        header h1 { font-family: 'Lilita One', cursive; font-size: 2.5rem; }
         .container { max-width: 600px; margin: 0 auto; padding: 15px; }
-        .section-title { font-family: 'Lilita One', cursive; font-size: 1.6rem; color: #d90429; margin: 25px 0 12px 5px; border-left: 5px solid #ef233c; padding-left: 10px; }
-        .product-card { background: white; padding: 14px 16px; border-radius: 16px; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #f0e6df; display: flex; justify-content: space-between; align-items: center; }
-        .add-btn { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: #e63946; background: #ffe5ec; padding: 8px 12px; border-radius: 10px; border: none; cursor: pointer; }
-        #cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: none; z-index: 1000; border-top-left-radius: 20px; border-top-right-radius: 20px; gap: 10px; }
-        .order-btn { flex-grow: 1; background-color: #25D366; color: white; text-align: center; padding: 16px; border-radius: 30px; text-decoration: none; font-weight: 700; }
+        .section-title { font-family: 'Lilita One', cursive; font-size: 1.5rem; color: #d90429; margin: 20px 0 10px 5px; border-left: 5px solid #ef233c; padding-left: 10px; }
+        .product-card { background: white; padding: 12px; border-radius: 12px; margin-bottom: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .product-info h3 { font-size: 0.95rem; }
+        .price-container { display: flex; gap: 5px; }
+        .add-btn { font-size: 0.8rem; font-weight: 700; color: #e63946; background: #ffe5ec; padding: 6px 10px; border-radius: 8px; border: none; cursor: pointer; }
+        .add-btn.queso { color: #ca6702; background: #fee44033; }
+        #cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px; box-shadow: 0 -5px 10px rgba(0,0,0,0.1); display: none; z-index: 1000; display: flex; gap: 10px; }
+        .order-btn { flex-grow: 1; background-color: #25D366; color: white; text-align: center; padding: 15px; border-radius: 25px; text-decoration: none; font-weight: 700; }
+        .clear-btn { background-color: #ef233c; color: white; border: none; padding: 15px 20px; border-radius: 25px; cursor: pointer; }
     </style>
 </head>
 <body>
     <header><h1>Antojitos Sr. Rita</h1></header>
     <div class="container">
-        <!-- Tostadas -->
+        <!-- TOSTADAS -->
         <div class="section-title">Tostadas</div>
-        <div class="product-card"><h3>Sencillas</h3><button class="add-btn" onclick="add('Tostada', 30)">+ $30</button></div>
+        <div class="product-card"><h3>Tostada</h3><button class="add-btn" onclick="add('Tostada', 30)">$30</button></div>
 
-        <!-- Pambazos -->
+        <!-- PAMBAZOS -->
         <div class="section-title">Pambazos</div>
-        <div class="product-card"><h3>Sencillo</h3><button class="add-btn" onclick="add('Pambazo Sencillo', 30)">+ $30</button></div>
-        <div class="product-card"><h3>Con Guisado</h3><button class="add-btn" onclick="add('Pambazo c/Guisado', 40)">+ $40</button></div>
-        <div class="product-card"><h3>Con Queso</h3><button class="add-btn" onclick="add('Pambazo c/Queso', 45)">+ $45</button></div>
-
-        <!-- Quesadillas -->
+        <div class="product-card"><h3>Sencillo</h3><button class="add-btn" onclick="add('Pambazo Sencillo', 30)">$30</button></div>
+        <div class="product-card"><h3>Con Guisado</h3><button class="add-btn" onclick="add('Pambazo c/Guisado', 40)">$40</button></div>
+        <div class="product-card"><h3>Con Queso</h3><button class="add-btn" onclick="add('Pambazo c/Queso', 45)">$45</button></div>
+        
+        <!-- QUESADILLAS -->
         <div class="section-title">Quesadillas</div>
-        <div class="product-card"><h3>Sencilla</h3><button class="add-btn" onclick="add('Quesadilla Sola', 27)">+ $27</button></div>
-        <div class="product-card"><h3>Con Queso</h3><button class="add-btn" onclick="add('Quesadilla c/Queso', 29)">+ $29</button></div>
+        <div class="product-card"><h3>Sola</h3><button class="add-btn" onclick="add('Quesadilla Sola', 27)">$27</button></div>
+        <div class="product-card"><h3>Con Queso</h3><button class="add-btn" onclick="add('Quesadilla c/Queso', 29)">$29</button></div>
 
-        <!-- Huaraches -->
+        <!-- TACOS -->
+        <div class="section-title">Tacos</div>
+        <div class="product-card"><h3>Taco</h3><button class="add-btn" onclick="add('Taco', 40)">$40</button></div>
+
+        <!-- HUARACHES -->
         <div class="section-title">Huaraches</div>
-        <div class="product-card"><h3>Con Guisado</h3><button class="add-btn" onclick="add('Huarache c/Guisado', 60)">+ $60</button></div>
-        <div class="product-card"><h3>Con Bistec</h3><button class="add-btn" onclick="add('Huarache c/Bistec', 65)">+ $65</button></div>
+        <div class="product-card"><h3>Con Bistec</h3><button class="add-btn" onclick="add('Huarache c/Bistec', 65)">$65</button></div>
+        <div class="product-card"><h3>Con Guisado</h3><button class="add-btn" onclick="add('Huarache c/Guisado', 60)">$60</button></div>
 
-        <!-- Sopes -->
+        <!-- SOPES -->
         <div class="section-title">Sopes</div>
-        <div class="product-card"><h3>Bistec, Longaniza o Guisado</h3><button class="add-btn" onclick="add('Sope', 45)">+ $45</button></div>
-        
-        <!-- Flautas -->
+        <div class="product-card"><h3>Bistec, Longaniza o Guisado</h3><button class="add-btn" onclick="add('Sope', 45)">$45</button></div>
+
+        <!-- FLAUTAS -->
         <div class="section-title">Flautas (La orden)</div>
-        <div class="product-card"><h3>Orden</h3><button class="add-btn" onclick="add('Orden Flautas', 60)">+ $60</button></div>
+        <div class="product-card"><h3>Orden</h3><button class="add-btn" onclick="add('Orden Flautas', 60)">$60</button></div>
         
-        <!-- Tacos y Extras -->
-        <div class="section-title">Tacos y Extras</div>
-        <div class="product-card"><h3>Tacos (c/u)</h3><button class="add-btn" onclick="add('Taco', 40)">+ $40</button></div>
-        <div class="product-card"><h3>Queso Extra</h3><button class="add-btn" onclick="add('Queso Extra', 5)">+ $5</button></div>
+        <!-- EXTRAS -->
+        <div class="section-title">Extras</div>
+        <div class="product-card"><h3>Queso Extra</h3><button class="add-btn" onclick="add('Queso Extra', 5)">$5</button></div>
     </div>
 
-    <div id="cart-bar" style="display:none;">
-        <a id="checkout-btn" href="#" class="order-btn" target="_blank">🛒 Pedir</a>
+    <div id="cart-bar">
+        <button onclick="clearCart()" class="clear-btn">🗑️</button>
+        <a id="checkout-btn" href="#" class="order-btn" target="_blank">Pedir</a>
     </div>
 
     <script>
         let order = [];
-        function add(name, price) {
-            let item = order.find(i => i.name === name);
-            if(item) item.qty++; else order.push({name, price, qty: 1});
-            updateCart();
-        }
+        function add(name, price) { order.push({name, price}); updateCart(); }
+        function clearCart() { order = []; updateCart(); }
         function updateCart() {
-            let total = order.reduce((s, i) => s + (i.price * i.qty), 0);
-            let count = order.reduce((s, i) => s + i.qty, 0);
+            let total = order.reduce((s, i) => s + i.price, 0);
             let bar = document.getElementById('cart-bar');
-            bar.style.display = 'flex';
             let btn = document.getElementById('checkout-btn');
-            btn.innerHTML = `🛒 Pedir ${count} items • Total: $${total}`;
-            let msg = "¡Hola! Mi pedido en Antojitos Sr. Rita:\n";
-            order.forEach(i => msg += `• ${i.qty}x ${i.name} ($${i.price * i.qty})\n`);
-            msg += `\n*TOTAL: $${total}*`;
+            bar.style.display = order.length ? 'flex' : 'none';
+            btn.innerHTML = `🛒 Total: $${total}`;
+            let msg = "Pedido Antojitos Sr. Rita:\n" + order.map(i => i.name + " $" + i.price).join('\n') + "\nTotal: $" + total;
             btn.href = "https://wa.me/525518446160?text=" + encodeURIComponent(msg);
         }
     </script>
