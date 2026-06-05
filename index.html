@@ -3,226 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antojitos Sr. Rita - Menú Digital</title>
-    <!-- NUEVAS TIPOGRAFÍAS MÁS LEGIBLES Y MODERNAS -->
+    <title>Antojitos Sr. Rita - Menú Interactivo</title>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            background-color: #FAF6F0; 
-            color: #332211; 
-            font-family: 'Montserrat', sans-serif; 
-            padding-bottom: 90px; 
-        }
-
-        header { 
-            text-align: center; 
-            padding: 35px 20px; 
-            background: linear-gradient(135deg, #d90429, #ef233c); 
-            color: white; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            border-bottom-left-radius: 25px; 
-            border-bottom-right-radius: 25px; 
-        }
-
-        header h1 { 
-            font-family: 'Lilita One', cursive; 
-            font-size: 3rem; 
-            letter-spacing: 1px;
-            margin-bottom: 2px; 
-        }
-
-        header p { 
-            font-size: 0.85rem; 
-            font-weight: 600;
-            opacity: 0.9; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-        }
-
+        body { background-color: #FAF6F0; color: #332211; font-family: 'Montserrat', sans-serif; padding-bottom: 120px; }
+        header { text-align: center; padding: 35px 20px; background: linear-gradient(135deg, #d90429, #ef233c); color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
+        header h1 { font-family: 'Lilita One', cursive; font-size: 3rem; letter-spacing: 1px; margin-bottom: 2px; }
+        header p { font-size: 0.85rem; font-weight: 600; opacity: 0.9; letter-spacing: 2px; text-transform: uppercase; }
         .container { max-width: 600px; margin: 0 auto; padding: 15px; }
-
-        .section-title { 
-            font-family: 'Lilita One', cursive;
-            font-size: 1.6rem; 
-            color: #d90429; 
-            margin: 25px 0 12px 5px; 
-            border-left: 5px solid #ef233c; 
-            padding-left: 10px; 
-            letter-spacing: 0.5px;
-        }
-
-        .product-card { 
-            background: white; 
-            padding: 14px 16px; 
-            border-radius: 16px; 
-            margin-bottom: 10px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02); 
-            border: 1px solid #f0e6df; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-
-        .product-info h3 { 
-            font-size: 1.05rem; 
-            color: #2b2d42; 
-            font-weight: 600; 
-        }
-
-        .product-info p {
-            font-size: 0.85rem;
-            color: #7a6f66;
-            margin-top: 2px;
-        }
-
-        .price-container {
-            display: flex;
-            gap: 6px;
-        }
-
-        .price-badge { 
-            font-size: 0.95rem; 
-            font-weight: 700; 
-            color: #e63946; 
-            background: #ffe5ec; 
-            padding: 6px 10px; 
-            border-radius: 10px;
-            white-space: nowrap;
-        }
-
-        .price-badge.queso {
-            color: #ca6702;
-            background: #fee44033;
-        }
-
-        .extra-note {
-            background: #f1faee;
-            border: 1px dashed #457b9d;
-            color: #1d3557;
-            padding: 10px;
-            text-align: center;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin: 15px 0;
-        }
-
-        .order-btn { 
-            display: block; 
-            background-color: #25D366; 
-            color: white; 
-            text-align: center; 
-            padding: 16px; 
-            border-radius: 30px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-            box-shadow: 0 6px 20px rgba(37,211,102,0.3); 
-            margin-top: 35px; 
-            position: sticky; 
-            bottom: 20px; 
-        }
+        .section-title { font-family: 'Lilita One', cursive; font-size: 1.6rem; color: #d90429; margin: 25px 0 12px 5px; border-left: 5px solid #ef233c; padding-left: 10px; letter-spacing: 0.5px; }
+        .product-card { background: white; padding: 14px 16px; border-radius: 16px; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #f0e6df; display: flex; justify-content: space-between; align-items: center; }
+        .product-info h3 { font-size: 1.05rem; color: #2b2d42; font-weight: 600; }
+        .product-info p { font-size: 0.8rem; color: #7a6f66; margin-top: 2px; }
+        .price-container { display: flex; gap: 6px; }
+        
+        /* Botones de agregar */
+        .add-btn { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; color: #e63946; background: #ffe5ec; padding: 8px 12px; border-radius: 10px; border: none; cursor: pointer; white-space: nowrap; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .add-btn:active { transform: scale(0.95); }
+        .add-btn.queso { color: #ca6702; background: #fee44033; }
+        
+        .extra-note { background: #f1faee; border: 1px dashed #457b9d; color: #1d3557; padding: 10px; text-align: center; border-radius: 12px; font-size: 0.85rem; font-weight: 600; margin: 15px 0; }
+        
+        /* Barra de carrito inferior */
+        #cart-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 20px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); display: none; justify-content: center; align-items: center; z-index: 1000; border-top-left-radius: 20px; border-top-right-radius: 20px;}
+        .order-btn { display: block; width: 100%; max-width: 560px; background-color: #25D366; color: white; text-align: center; padding: 16px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+        
+        /* Notificación flotante */
+        #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; opacity: 0; transition: opacity 0.3s; z-index: 2000; pointer-events: none; }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- AQUÍ YA SE APLICA LA NUEVA LETRA LLAMATIVA -->
         <h1>Antojitos Sr. Rita</h1>
-        <p>✨ Menú Digital ✨</p>
+        <p>✨ Menú Interactivo ✨</p>
     </header>
+
+    <div id="toast">¡Agregado al pedido!</div>
 
     <div class="container">
         
+        <div class="extra-note">👇 Toca los precios para agregar a tu orden 👇</div>
+
         <!-- TOSTADAS -->
         <div class="section-title">Tostadas</div>
-        <div class="product-card"><div class="product-info"><h3>Pata</h3></div><div class="price-badge">$30</div></div>
-        <div class="product-card"><div class="product-info"><h3>Carne</h3></div><div class="price-badge">$30</div></div>
-        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><div class="price-badge">$30</div></div>
-        <div class="product-card"><div class="product-info"><h3>Picadillo</h3></div><div class="price-badge">$30</div></div>
+        <div class="product-card"><div class="product-info"><h3>Pata</h3></div><button class="add-btn" onclick="add('Tostada de Pata', 30)">+ $30</button></div>
+        <div class="product-card"><div class="product-info"><h3>Carne</h3></div><button class="add-btn" onclick="add('Tostada de Carne', 30)">+ $30</button></div>
+        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><button class="add-btn" onclick="add('Tostada de Pollo', 30)">+ $30</button></div>
+        <div class="product-card"><div class="product-info"><h3>Picadillo</h3></div><button class="add-btn" onclick="add('Tostada de Picadillo', 30)">+ $30</button></div>
 
         <!-- QUESADILLAS -->
         <div class="section-title">Quesadillas</div>
-        <div class="extra-note">💡 Precios: Izquierda = Sencilla | Derecha = Con Queso</div>
-        
-        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Carne</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Hongos</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Panza</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Sesos</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Picadillo</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Flor de Calabaza</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Huitlacoche</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Chicharrón</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Queso Solo</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Papas con Longaniza</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Papas con Rajas</h3></div><div class="price-container"><span class="price-badge">$26</span><span class="price-badge queso">C/Q $28</span></div></div>
+        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Pollo', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Pollo c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Carne</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Carne', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Carne c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Hongos</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Hongos', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Hongos c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Panza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Panza', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Panza c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Sesos</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Sesos', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Sesos c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Picadillo</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Picadillo', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Picadillo c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Flor de Calabaza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Flor', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Flor c/Queso', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Huitlacoche</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Huitlacoche', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Huitlacoche c/Q', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Chicharrón</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Chicharrón', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Chicharrón c/Q', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Queso Solo</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Queso Solo', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Queso Extra', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Papas con Longaniza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Papa/Longaniza', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Papa/Long c/Q', 28)">+ C/Q $28</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Papas con Rajas</h3></div><div class="price-container"><button class="add-btn" onclick="add('Quesadilla Papa/Rajas', 26)">+ $26</button><button class="add-btn queso" onclick="add('Quesadilla Papa/Rajas c/Q', 28)">+ C/Q $28</button></div></div>
 
         <!-- PAMBAZOS -->
         <div class="section-title">Pambazos</div>
-        <div class="extra-note">💡 Precios: Izquierda = Normal | Derecha = Con Guisado</div>
-        <div class="product-card"><div class="product-info"><h3>Papa con Longaniza</h3></div><div class="price-container"><span class="price-badge">$30</span><span class="price-badge queso">C/G $38</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><div class="price-container"><span class="price-badge">$30</span><span class="price-badge queso">C/G $38</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Carne</h3></div><div class="price-container"><span class="price-badge">$30</span><span class="price-badge queso">C/G $38</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Picadillo</h3></div><div class="price-container"><span class="price-badge">$30</span><span class="price-badge queso">C/G $38</span></div></div>
-        <div class="product-card" style="background:#fffcf2;"><div class="product-info"><h3>➕ Ingrediente Extra</h3></div><div class="price-badge">+$5</div></div>
+        <div class="product-card"><div class="product-info"><h3>Papa con Longaniza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Pambazo Papa/Longaniza', 30)">+ $30</button><button class="add-btn queso" onclick="add('Pambazo Papa/Long c/Guisado', 38)">+ C/G $38</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><div class="price-container"><button class="add-btn" onclick="add('Pambazo Pollo', 30)">+ $30</button><button class="add-btn queso" onclick="add('Pambazo Pollo c/Guisado', 38)">+ C/G $38</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Carne</h3></div><div class="price-container"><button class="add-btn" onclick="add('Pambazo Carne', 30)">+ $30</button><button class="add-btn queso" onclick="add('Pambazo Carne c/Guisado', 38)">+ C/G $38</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Picadillo</h3></div><div class="price-container"><button class="add-btn" onclick="add('Pambazo Picadillo', 30)">+ $30</button><button class="add-btn queso" onclick="add('Pambazo Picadillo c/Guisado', 38)">+ C/G $38</button></div></div>
 
         <!-- GORDITAS Y TACOS -->
         <div class="section-title">Gorditas y Tacos</div>
-        <div class="product-card"><div class="product-info"><h3>Bistec</h3></div><div class="price-container"><span class="price-badge">$40</span><span class="price-badge queso">C/Q $45</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Longaniza</h3></div><div class="price-container"><span class="price-badge">$40</span><span class="price-badge queso">C/Q $45</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Campechano</h3></div><div class="price-container"><span class="price-badge">$40</span><span class="price-badge queso">C/Q $45</span></div></div>
+        <div class="product-card"><div class="product-info"><h3>Bistec</h3></div><div class="price-container"><button class="add-btn" onclick="add('Gordita/Taco Bistec', 40)">+ $40</button><button class="add-btn queso" onclick="add('Gordita/Taco Bistec c/Q', 45)">+ C/Q $45</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Longaniza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Gordita/Taco Longaniza', 40)">+ $40</button><button class="add-btn queso" onclick="add('Gordita/Taco Longaniza c/Q', 45)">+ C/Q $45</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Campechano</h3></div><div class="price-container"><button class="add-btn" onclick="add('Gordita/Taco Campechano', 40)">+ $40</button><button class="add-btn queso" onclick="add('Gordita/Taco Campechano c/Q', 45)">+ C/Q $45</button></div></div>
 
         <!-- SOPES -->
         <div class="section-title">Sopes</div>
-        <div class="product-card"><div class="product-info"><h3>Chicharrón</h3></div><div class="price-badge">$30</div></div>
-        <div class="product-card"><div class="product-info"><h3>Queso</h3></div><div class="price-badge">$30</div></div>
-        <div class="product-card"><div class="product-info"><h3>Combinado</h3></div><div class="price-badge">$30</div></div>
-        <div class="product-card" style="background:#fffcf2;"><div class="product-info"><h3>➕ Ingrediente Extra</h3></div><div class="price-badge">+$5</div></div>
+        <div class="product-card"><div class="product-info"><h3>Chicharrón</h3></div><button class="add-btn" onclick="add('Sope de Chicharrón', 30)">+ $30</button></div>
+        <div class="product-card"><div class="product-info"><h3>Queso</h3></div><button class="add-btn" onclick="add('Sope de Queso', 30)">+ $30</button></div>
+        <div class="product-card"><div class="product-info"><h3>Combinado</h3></div><button class="add-btn" onclick="add('Sope Combinado', 30)">+ $30</button></div>
 
         <!-- FLAUTAS -->
         <div class="section-title">Flautas</div>
-        <div class="product-card"><div class="product-info"><h3>Bistec</h3></div><div class="price-container"><span class="price-badge">$40</span><span class="price-badge queso">C/Q $45</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Longaniza</h3></div><div class="price-container"><span class="price-badge">$40</span><span class="price-badge queso">C/Q $45</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Guisado</h3></div><div class="price-container"><span class="price-badge">$40</span><span class="price-badge queso">C/Q $45</span></div></div>
-        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><div class="price-badge">$60</div></div>
+        <div class="product-card"><div class="product-info"><h3>Bistec</h3></div><div class="price-container"><button class="add-btn" onclick="add('Flauta Bistec', 40)">+ $40</button><button class="add-btn queso" onclick="add('Flauta Bistec c/Queso', 45)">+ C/Q $45</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Longaniza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Flauta Longaniza', 40)">+ $40</button><button class="add-btn queso" onclick="add('Flauta Longaniza c/Queso', 45)">+ C/Q $45</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Guisado</h3></div><div class="price-container"><button class="add-btn" onclick="add('Flauta Guisado', 40)">+ $40</button><button class="add-btn queso" onclick="add('Flauta Guisado c/Queso', 45)">+ C/Q $45</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Pollo</h3></div><button class="add-btn" onclick="add('Flauta de Pollo', 60)">+ $60</button></div>
 
         <!-- HUARACHES -->
         <div class="section-title">Huaraches</div>
-        <div class="product-card">
-            <div class="product-info">
-                <h3>Bistec</h3>
-            </div>
-            <div class="price-container"><span class="price-badge">$60</span><span class="price-badge queso">C/Q $65</span></div>
-        </div>
-        <div class="product-card">
-            <div class="product-info">
-                <h3>Longaniza</h3>
-            </div>
-            <div class="price-container"><span class="price-badge">$60</span><span class="price-badge queso">C/Q $65</span></div>
-        </div>
-        <div class="product-card">
-            <div class="product-info">
-                <h3>Guisado</h3>
-                <p>(Pollo, Carne, Chicharrón, Quesillo o Picadillo)</p>
-            </div>
-            <div class="price-container"><span class="price-badge">$60</span><span class="price-badge queso">C/Q $65</span></div>
-        </div>
+        <div class="product-card"><div class="product-info"><h3>Bistec</h3></div><div class="price-container"><button class="add-btn" onclick="add('Huarache Bistec', 60)">+ $60</button><button class="add-btn queso" onclick="add('Huarache Bistec c/Queso', 65)">+ C/Q $65</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Longaniza</h3></div><div class="price-container"><button class="add-btn" onclick="add('Huarache Longaniza', 60)">+ $60</button><button class="add-btn queso" onclick="add('Huarache Longaniza c/Queso', 65)">+ C/Q $65</button></div></div>
+        <div class="product-card"><div class="product-info"><h3>Guisado</h3><p>Especifique en WhatsApp</p></div><div class="price-container"><button class="add-btn" onclick="add('Huarache Guisado', 60)">+ $60</button><button class="add-btn queso" onclick="add('Huarache Guisado c/Queso', 65)">+ C/Q $65</button></div></div>
 
         <!-- REFRESCOS -->
         <div class="section-title">Refrescos</div>
-        <div class="product-card"><div class="product-info"><h3>Coca Cola / Pepsi</h3></div><div class="price-badge">$25</div></div>
-        <div class="product-card"><div class="product-info"><h3>Jarrito / Peñafiel</h3></div><div class="price-badge">$25</div></div>
-        <div class="product-card"><div class="product-info"><h3>Sangría / Arizona</h3></div><div class="price-badge">$25</div></div>
-
-        <!-- BOTÓN DE WHATSAPP DIRECTO -->
-        <a href="https://wa.me/525518446160?text=Hola!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20en%20Antojitos%20Sr.%20Rita%20%F0%9F%8C%AE%E2%9C%A8" class="order-btn" target="_blank">
-            📲 Ordenar por WhatsApp
-        </a>
+        <div class="product-card"><div class="product-info"><h3>Coca Cola / Pepsi</h3></div><button class="add-btn" onclick="add('Refresco Cola', 25)">+ $25</button></div>
+        <div class="product-card"><div class="product-info"><h3>Jarrito / Peñafiel</h3></div><button class="add-btn" onclick="add('Refresco Sabor/Peñafiel', 25)">+ $25</button></div>
+        <div class="product-card"><div class="product-info"><h3>Sangría / Arizona</h3></div><button class="add-btn" onclick="add('Sangría/Arizona', 25)">+ $25</button></div>
+        
+        <!-- EXTRAS -->
+        <div class="product-card" style="background:#fffcf2; margin-top:20px;"><div class="product-info"><h3>➕ Ingrediente Extra</h3></div><button class="add-btn" onclick="add('Ingrediente Extra', 5)">+ $5</button></div>
 
     </div>
 
+    <!-- Barra de Carrito Inferior -->
+    <div id="cart-bar">
+        <a id="checkout-btn" href="#" class="order-btn" target="_blank">
+            🛒 Pedir 0 items • $0
+        </a>
+    </div>
+
+    <!-- CÓDIGO JAVASCRIPT PARA EL CARRITO -->
+    <script>
+        let order = [];
+
+        function add(name, price) {
+            // Mostrar mensajito flotante
+            let toast = document.getElementById("toast");
+            toast.style.opacity = "1";
+            setTimeout(() => { toast.style.opacity = "0"; }, 1500);
+
+            // Agregar al carrito
+            let item = order.find(i => i.name === name);
+            if (item) {
+                item.qty++;
+            } else {
+                order.push({name: name, price: price, qty: 1});
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            let total = order.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            let count = order.reduce((sum, item) => sum + item.qty, 0);
+            let cartBar = document.getElementById('cart-bar');
+            let btn = document.getElementById('checkout-btn');
+
+            if (count > 0) {
+                cartBar.style.display = 'flex';
+                btn.innerHTML = `🛒 Pedir ${count} artículos • Total: $${total}`;
+
+                // Armar el mensaje de WhatsApp
+                let msg = "¡Hola! Quisiera hacer el siguiente pedido en Antojitos Sr. Rita 🌮✨:\n\n";
+                order.forEach(i => {
+                    msg += `▪️ ${i.qty}x ${i.name} - $${i.price * i.qty}\n`;
+                });
+                msg += `\n*TOTAL A PAGAR: $${total}*\n\n¡Muchas gracias!`;
+
+                // Aquí está el número de teléfono configurado
+                btn.href = "https://wa.me/525518446160?text=" + encodeURIComponent(msg);
+            }
+        }
+    </script>
 </body>
 </html>
