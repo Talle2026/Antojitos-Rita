@@ -11,10 +11,11 @@
         .product-card { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         select { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; }
         .add-btn { width: 100%; padding: 12px; background: #d90429; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        
         #cart-section { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); max-height: 250px; overflow-y: auto; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; border-bottom: 1px solid #eee; }
-        .remove-btn { color: red; cursor: pointer; font-weight: bold; margin-left: 10px; }
-        .total-box { font-weight: bold; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px; font-size: 1.1rem; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.95rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .remove-btn { color: white; background: red; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: 10px; font-size: 0.8rem; }
+        .total-box { font-weight: bold; margin-top: 10px; border-top: 2px solid #333; padding-top: 10px; font-size: 1.2rem; }
         .order-btn { width: 100%; padding: 15px; background: #25D366; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
@@ -159,7 +160,8 @@
         function addToCart(selectId) {
             let sel = document.getElementById(selectId);
             let [name, price] = sel.value.split(',');
-            cart.push({name, price: parseInt(price), id: Date.now()});
+            // Usamos Date.now() + Math.random() para asegurar un ID único
+            cart.push({name, price: parseInt(price), id: Date.now() + Math.random()});
             renderCart();
         }
         function removeFromCart(id) {
@@ -172,7 +174,11 @@
             container.innerHTML = '';
             cart.forEach(item => {
                 total += item.price;
-                container.innerHTML += `<div class="cart-item">${item.name} ($${item.price}) <span class="remove-btn" onclick="removeFromCart(${item.id})">X</span></div>`;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} ($${item.price})</span>
+                        <span class="remove-btn" onclick="removeFromCart(${item.id})">Eliminar</span>
+                    </div>`;
             });
             document.getElementById('total').innerText = total;
         }
